@@ -20,7 +20,7 @@ const AdventureGame = () => {
   // Story data structure
   const storyNodes: StoryNodes = {
     start: {
-      text: "Vous vous réveillez dans une forêt mystérieuse. L'air est chargé de brume, et vous entendez des sons étranges au loin. Devant vous, le chemin se divise en deux directions.",
+      text: "Vous vous réveillez dans une forêt mystérieuse. L'air est chargé de brume, et vous entendez des sons étranges au loin. Devant vous, le chemin se divise en deux directions. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nulla enim, interdum quis ipsum interdum, venenatis laoreet orci. Sed in nulla diam. Cras sollicitudin, massa sit amet luctus dictum, eros risus tincidunt nisl, vel aliquam sem purus at est. Curabitur sed tellus lacus. Fusce hendrerit faucibus neque vitae aliquet. Donec sed tortor eu elit ultricies lobortis eget eget nulla. Nulla non leo viverra, venenatis nisi a, commodo ex. Curabitur ornare lorem vitae eleifend accumsan. Donec ultrices libero mauris, non luctus elit ullamcorper eu. ",
       choices: [
         { text: "Prendre le chemin de gauche, qui s'enfonce dans la forêt", nextNode: "leftPath" },
         { text: "Prendre le chemin de droite, qui semble monter", nextNode: "rightPath" }
