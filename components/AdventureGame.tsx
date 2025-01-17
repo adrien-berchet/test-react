@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 interface Choice {
   text: string;
@@ -10,6 +11,10 @@ interface Choice {
 interface StoryNode {
   text: string;
   choices: Choice[];
+  image?: {
+    src: string;
+    alt: string;
+  };
 }
 
 interface StoryNodes {
@@ -24,7 +29,11 @@ const AdventureGame = () => {
       choices: [
         { text: "Prendre le chemin de gauche, qui s'enfonce dans la forêt", nextNode: "leftPath" },
         { text: "Prendre le chemin de droite, qui semble monter", nextNode: "rightPath" }
-      ]
+      ],
+      image: {
+        src: "/images/fort-boyard.jpg",
+        alt: "Un ancien temple en pierre"
+      }
     },
     leftPath: {
       text: "En vous aventurant plus profondément dans la forêt, vous tombez sur une ancienne structure en pierre. On dirait un temple. Vous remarquez une porte entrouverte et une fenêtre brisée.",
@@ -108,9 +117,24 @@ const AdventureGame = () => {
     <div className="w-full max-w-1xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
       <div className="p-6">
         <h2 className="text-2xl font-bold text-center mb-6">Forêt des Mystères</h2>
+
         <div className="bg-slate-50 p-6 rounded-lg mb-6">
           <p className="text-lg text-gray-700">{storyNodes[currentNode].text}</p>
         </div>
+
+        {/* Image container */}
+        {storyNodes[currentNode].image && (
+          <div className="relative w-full h-64 mb-6 rounded-lg overflow-hidden">
+            <Image
+              src={storyNodes[currentNode].image.src}
+              alt={storyNodes[currentNode].image.alt}
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        )}
+
         <div className="space-y-3">
           {storyNodes[currentNode].choices.map((choice, index) => (
             <button
