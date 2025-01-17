@@ -2,9 +2,23 @@
 
 import React, { useState } from 'react';
 
+interface Choice {
+  text: string;
+  nextNode: string;
+}
+
+interface StoryNode {
+  text: string;
+  choices: Choice[];
+}
+
+interface StoryNodes {
+  [key: string]: StoryNode;
+}
+
 const AdventureGame = () => {
   // Story data structure
-  const storyNodes = {
+  const storyNodes: StoryNodes = {
     start: {
       text: "Vous vous réveillez dans une forêt mystérieuse. L'air est chargé de brume, et vous entendez des sons étranges au loin. Devant vous, le chemin se divise en deux directions.",
       choices: [
@@ -86,7 +100,7 @@ const AdventureGame = () => {
 
   const [currentNode, setCurrentNode] = useState('start');
 
-  const handleChoice = (nextNode) => {
+  const handleChoice = (nextNode: string) => {
     setCurrentNode(nextNode);
   };
 
